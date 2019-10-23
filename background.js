@@ -1,6 +1,6 @@
 let tracker = "https://www.dealabs.com/mascotcards/see"
 
-chrome.webRequest.onBeforeRequest.addListener(
+window[typeof chrome !== "undefined" ? 'chrome' : 'browser'].webRequest.onBeforeRequest.addListener(
 	(request) => {
 		console.log(request)
 
@@ -28,7 +28,6 @@ chrome.webRequest.onBeforeRequest.addListener(
 				}
 			}
 		}
-
 	},
 	{ urls: [tracker] },
 	["requestBody"]
